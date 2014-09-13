@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>Tron Game Test</title>
+
+<script src="gameScript.js"></script>
+<script src="hammer.js"></script>
+<script src="setup.js"></script>
+<script src="getElementsByClassName-1.0.1.js"></script>
+<link rel="stylesheet" type="text/css" href="gameStyle.css"/>
+</head>
+<body onkeypress="keyListener(event);">
+    
+	<div id="divBound"></div>
+            
+	<script>
+		document.body.addEventListener('touchmove', function(event) { event.preventDefault();}, false); 
+		setScreen();
+		<!--drawPath()!-->
+	</script>
+
+</body>
+</html>

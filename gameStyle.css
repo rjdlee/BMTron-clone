@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#divBound{
+	width: 960px;
+	height: 640px;
+	top: 0;
+	left: 0;
+	background-color: #424242;
+	position: absolute;
+}
+
+.followBox{
+	width: 10px;
+	height: 10px;
+	background: #EAEAEA;
+	position: absolute;
+}
