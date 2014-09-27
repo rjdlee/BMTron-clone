@@ -1,24 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE XHTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-<title>Tron Game Test</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<meta http-equiv='Content-Type' content='text/html charset=UTF-8'/>
 
-<script src="gameScript.js"></script>
-<script src="hammer.js"></script>
-<script src="setup.js"></script>
-<script src="getElementsByClassName-1.0.1.js"></script>
-<link rel="stylesheet" type="text/css" href="gameStyle.css"/>
+	<title>RTron</title>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
-<body onkeypress="keyListener(event);">
+<body>
     
-	<div id="divBound"></div>
-            
-	<script>
-		document.body.addEventListener('touchmove', function(event) { event.preventDefault();}, false); 
-		setScreen();
-		<!--drawPath()!-->
-	</script>
+	<div class="sideMenu">
+		<img src="img/RTronLogo.svg" id="logo" alt="logo" />
+		<p id="instructions">
+    		Press <b onclick="gameStart();">Spacebar</b> or <b onclick="gameStart();">P</b> to begin or pause a game.<br/>
+    	</p>
+    	<p id="message">
+    	</p><p>
+			<label id="viewPlayers">1 Player</label><br/>
+		    <input id="numPlayers" type="range" min="1" max="4" value="1" step="1" />
+	    </p><div>
+			<label>Controls</label>
+		    <div id="controlView">
+		    	<p>
+		    		<b style="color: #D1E7F9">
+		    			Player 1
+		    		</b><bdi>
+		   				WASD
+		   			</bdi>
+		   		</p>
+			</div>
+	    </div><p>
+			<label id="viewRate">24 FPS</label><br/>
+			<input id="frameRate" type="range" min="24" max="120" value="24" step="8" />
+	    </p><footer>
+	    	<p>
+	    		Inspired by <a target="_blank" href="http://www.games1729.com/bmtron/">BMTron</a>
+				Made by <a target="_blank" href="http://rileedesign.com">Richard Lee</a><br/>
+	    	</p>
+	    	<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CB2MUV3KNTU3S">For Sean</a>
+	    </footer>
+	</div>
+
+	<div id="gameFrame" style="left: 190px; background-color: #3FB873">
+	</div>
+
+	<script src="global.js"></script>
+	<script src="interval.js"></script>
+	<script src="menu.js"></script>
+	<script src="input.js"></script>
+	
+	<script src="cycle.js"></script>
+
+	<script src="main.js"></script>
 
 </body>
 </html>

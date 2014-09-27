@@ -1,0 +1,111 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	font-family: calibri, verdana;
+	color: #EEE;
+	text-align: center;
+	margin: 0;
+	overflow: hidden;
+}
+	
+	p {
+		padding-bottom: 0.5rem;
+		cursor: default;
+	}
+
+		a {
+			color: #3FB873;
+			text-decoration: none;
+		}
+
+			a:hover, a:active, b:hover, b:active {
+				color: #3f85b8;
+				transition: color 0.3s ease;
+			}
+
+		b {
+			color: #3FB873;
+		}
+
+		h1 {
+			margin-bottom: 1em;
+		}
+	
+	/* Track styling only visible in Firefox */
+	::-moz-range-track {
+    	background-color: #17432a;
+    	border-color: #0d2618;
+	}
+	::-moz-range-thumb {
+		width: 5px;
+    	background-color: #dcdede;
+    	border-color: #bec2c2;
+	}
+
+	input[type="range"]::-ms-fill-upper {
+	    background-color: green;
+	}
+
+label {
+	font-size: 1rem;
+	font-weight: bold;
+	color: #3f85b8;
+}
+
+.sideMenu {
+	position: absolute;
+	width: 149px;
+	padding: 3vh 20px;
+	height: 94vh;
+	overflow: scroll;
+	border-right: 1px solid #123432;
+	background-color: #222424;
+	z-index: 0;
+	text-align: left;
+}
+
+	#logo {
+		width: 100%;
+	}
+
+		#instructions > b {
+			cursor: pointer;
+		}
+
+	#message {
+		margin-top: 0;
+		margin-bottom: 22px;
+		line-height: 1.5rem;
+		border-bottom: 1px solid #0d2524;
+	}
+	
+		#controlView > p {
+			margin: 0;
+		}
+
+		#controlView bdi {
+			letter-spacing: 2px;
+		}
+
+	footer {
+		margin-top: 5vh;
+		padding-top: 5vh;
+		border-top: 1px solid #0d2524;
+	}
+
+#gameFrame {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
+	background-color: #3FB8AF;
+	transition: left 0.3s ease, background-color 0.3s ease, width 0.3s ease;
+}
+
+	.node {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background: #F6F6F6;
+	}
