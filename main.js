@@ -1,87 +1,90 @@
-// Main rendering and game clock
+/*
 
-function render() {
+Main rendering and game instantiation
+
+*/
+
+function gameStart()
+{
+	window.setTimeout(function() { 
+		isActive = true;
+		render();
+	}, 300);
+
+	screenGame.style.width = "";
+	screenGame.style.backgroundColor = "";
+	viewMenu(false);
+}
+
+function gamePause()
+{
+	isActive = false;
+
+	screenGame.style.width = (screenWidth - 190) + "px";
+	screenGame.style.backgroundColor = "#3FB873";
+	viewMenu(true);
+}
+
+function gameReset()
+{
+	for(var i = 0; i < cycles.length; i++)
+	{
+		cycles[i].reset();
+	}
+
+	cycles = [];
+	playersActive = players;
+
+	setCycles();
+	gamePause();
+}
+
+// Main rendering and collision detection process
+function render()
+{
 	// Iterate through all cycles and animate them
 	for(var i = 0; i < cycles.length; i++)
 	{
-		// cycle.draw returns false when a player collides with something
-		if(!cycles[i].draw())
+		if(cycles[i].isActive == true)
 		{
-			// Reset the game if there is only 1 player left
-			if(cycles.length <= 2)
+			// cycle.draw returns false when a player collides with something
+			if(!cycles[i].draw())
 			{
-				cycles.splice(i, i + 1);
+				cycles[i].isActive = false;
+				playersActive--;
 
-				// If is needed if there is only one player since they have already been spliced out
-				if(cycles[0] != null)
+				if(playersActive < 2)
 				{
-					cycles[0].reset();
-					setWinner(cycles[0].idNum + 1);
-				}
+					for(var j = 0; j < cycles.length; j++)
+					{
+						if(cycles[j].isActive == true)
+						{
+							viewMessage("Player " + (cycles[j].idNum + 1) + " is the winner!", 5000);
+						}
+						cycles[j].reset();
+					}
 
-				gameReset();
-				return;
-			} else
-			{
-				cycles.splice(i, 1);
+					gameReset();
+					return;
+				}
 			}
 		}
 	}
 
 	// Limit to frameRate(found in global.js) for efficiency
-	if(active == true) {
-		setTimeout( function() {
+	if(isActive == true)
+	{
+		setTimeout( function()
+		{
 			requestAnimationFrame(render);
 		}, frameRate);
 	}
-
 }
 
-// Create player cycles and set their position
-// The algorithm attempts to place all players in a square or equilateral triangle
-function setPlayers()
-{
-	var numPlayers = playerNum,
-		lenX = Math.ceil(Math.sqrt(numPlayers)), // Finds side length
-		lenY = Math.ceil(numPlayers / lenX), 
-		spaceX 	= screenWidth / (lenX + 1),
-		spaceY 	= screenHeight / (lenY + 1),
-		i = 0;
-
-	for(var y = 1; y <= lenY; y++)
-	{
-		// Determine if this is a full row or not
-		lenX = numPlayers >= lenX ? lenX : numPlayers; 
-
-		for(var x = 1; x <= lenX; x++)
-		{
-			// Determine side offset based on number of cycles in this row
-			spaceX = screenWidth / (lenX + 1);
-			cycles.push(new Cycle(i, x * spaceX, y * spaceY));
-			i++;
-		}
-
-		numPlayers -= lenX;
-	}
-
-	// Set the players speed in relation to frameRate
-	for(var i = 0; i < cycles.length; i++)
-	{
-		cycles[i].setSpeed(frameRate * (24 / 1000));
-	}
-}
-
-// Convert getElementsByClassName to an array
-function classToArray(name)
-{
-	return Array.prototype.slice.call(document.getElementsByClassName(name));
-}
-
-// Initialization
+// Main initialization process
 (function()
 {
-	inputAddListeners();
-	menuAddListeners();
-	setPlayers();
-	bindKeys();
+	initGlobal();
+	initInput();
+	initMenu();
 })();

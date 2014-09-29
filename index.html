@@ -8,50 +8,83 @@
 	<link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
 <body>
-    
-	<div class="sideMenu">
+
+<div class="sideMenu">
 		<img src="img/RTronLogo.svg" id="logo" alt="logo" />
 		<p id="instructions">
-    		Press <b onclick="gameStart();">Spacebar</b> or <b onclick="gameStart();">P</b> to begin or pause a game.<br/>
-    	</p>
-    	<p id="message">
-    	</p><p>
-			<label id="viewPlayers">1 Player</label><br/>
-		    <input id="numPlayers" type="range" min="1" max="4" value="1" step="1" />
-	    </p><div>
-			<label>Controls</label>
-		    <div id="controlView">
-		    	<p>
-		    		<b style="color: #D1E7F9">
-		    			Player 1
-		    		</b><bdi>
-		   				WASD
-		   			</bdi>
-		   		</p>
-			</div>
-	    </div><p>
-			<label id="viewRate">24 FPS</label><br/>
-			<input id="frameRate" type="range" min="24" max="120" value="24" step="8" />
-	    </p><footer>
-	    	<p>
-	    		Inspired by <a target="_blank" href="http://www.games1729.com/bmtron/">BMTron</a>
-				Made by <a target="_blank" href="http://rileedesign.com">Richard Lee</a><br/>
-	    	</p>
-	    	<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CB2MUV3KNTU3S">For Sean</a>
-	    </footer>
-	</div>
+			Press <b onclick="gameStart();">Spacebar</b> or <b onclick="gameStart();">P</b> to begin or pause a game.<br/>
+		</p>
+		<p id="message">
+			Nil
+		</p><p>
+		<label id="viewPlayers">1 Player</label><br/>
+		<input id="numPlayers" type="range" min="1" max="4" value="1" step="1" />
+	</p><div>
+	<label>Controls</label>
+	<div id="controlView">
+		<p>
+			<b style="color: #D1E7F9">
+				Player 1
+			</b><bdi>
+			WASD
+		</bdi>
+	</p>
+</div>
+</div><p>
+<label id="viewRate">24 FPS</label><br/>
+<input id="frameRate" type="range" min="24" max="120" value="24" step="8" />
+</p><footer>
+<p>
+	Made by <a target="_blank" href="http://rileedesign.com">Richard Lee</a>.<br/>
+	Based off <a target="_blank" href="http://www.games1729.com/bmtron/">BMTron</a>.<br/>
+	Find on <a target="_blank" href="https://github.com/rjdlee/BMTron-clone">Github</a>.<br/>
+	Just for <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CB2MUV3KNTU3S">Sean</a>.
+</p>
+</footer>
+</div>
 
-	<div id="gameFrame" style="left: 190px; background-color: #3FB873">
-	</div>
+<div id="gameFrame" style="left: 190px; background-color: #3FB873">
+</div>
 
-	<script src="global.js"></script>
-	<script src="interval.js"></script>
-	<script src="menu.js"></script>
-	<script src="input.js"></script>
-	
-	<script src="cycle.js"></script>
+<!-- Asynchronously load Javascript files !-->
+<script type="text/javascript">
+	var scripts = 
+	[
+		"global.js",
+		"popup.js",
 
-	<script src="main.js"></script>
+		"input/menu.js",
+		"input/input.js",
+
+		"cycle/node.js",
+		"cycle/cycle.js",
+		"cycle/cycles.js",
+
+		"main.js"
+	];
+
+	for(var i = 0; i < scripts.length; i++)
+	{
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.async = true;
+		script.src = scripts[i];
+
+		document.body.appendChild(script);
+	}
+
+	// Google Analytics
+	if(document.location.href == "http://rileedesign.com/projects/tron")
+	{
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-55276900-1', 'auto');
+	  ga('send', 'pageview');
+	}
+</script>
 
 </body>
 </html>

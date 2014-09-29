@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* CSS Document */
 
 body {
 	font-family: calibri, verdana;
@@ -19,9 +18,16 @@ body {
 			text-decoration: none;
 		}
 
+		a, b {
+			transition: color 0.3s ease;
+			-o-transition: color 0.3s ease;
+			-ms-transition: color 0.3s ease;
+			-moz-transition: color 0.3s ease;
+			-webkit-transition: color 0.3s ease;
+		}
+
 			a:hover, a:active, b:hover, b:active {
 				color: #3f85b8;
-				transition: color 0.3s ease;
 			}
 
 		b {
@@ -33,19 +39,45 @@ body {
 		}
 	
 	/* Track styling only visible in Firefox */
-	::-moz-range-track {
-    	background-color: #17432a;
-    	border-color: #0d2618;
+	input[type="range"] {
+		margin-top: 10px;
 	}
-	::-moz-range-thumb {
-		width: 5px;
-    	background-color: #dcdede;
-    	border-color: #bec2c2;
-	}
-
-	input[type="range"]::-ms-fill-upper {
-	    background-color: green;
-	}
+		::-moz-range-track {
+			border-radius: 5px;
+			height: 8px;
+	    	background-color: #17432a;
+	    	border-color: #0d2618;
+		}
+		::-moz-range-thumb {
+			width: 8px;
+			height: 16px;
+	    	background-color: #dcdede;
+	    	border-color: #bec2c2;
+		}
+		::-webkit-slider-runnable-track {
+			border-radius: 5px;
+			height: 8px;
+			background-color: #17432a;
+			border-color: #0d2618;
+		}
+		::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			margin-top: -2px;
+	    	background-color: #dcdede;
+	    	border-color: #bec2c2;
+		}
+		::-ms-track {
+			border-radius: 5px;
+			height: 8px;
+    		background-color: #17432a;
+    		border-color: #0d2618;
+		}
+		::-ms-thumb {
+			width: 8px;
+			height: 16px;
+    		background-color: #dcdede;
+    		border-color: #bec2c2;
+		}
 
 label {
 	font-size: 1rem;
@@ -74,24 +106,111 @@ label {
 		}
 
 	#message {
-		margin-top: 0;
-		margin-bottom: 22px;
+		margin-top: -8px;
+		padding-bottom: 14px;
 		line-height: 1.5rem;
+		opacity: 0;
 		border-bottom: 1px solid #0d2524;
+
+		transition: opacity 0.3s ease;
+		-o-transition: opacity 0.3s ease;
+		-ms-transition: opacity 0.3s ease;
+		-moz-transition: opacity 0.3s ease;
+		-webkit-transition: opacity 0.3s ease;
 	}
 	
-		#controlView > p {
-			margin: 0;
+		#controlView > div {
+			margin: 5px;
+ 			animation: slideDown 0.2s ease;
+ 			-o-animation: slideDown 0.2s ease;
+ 			-moz-animation: slideDown 0.2s ease;
+ 			-webkit-animation: slideDown 0.2s ease;
 		}
+			@keyframes slideDown {
+				0% {
+					opacity: 0;
+				    margin-top: -20px;
+				}
+				60% {
+					opacity: 0.1;
+				}
+				100% {
+					opacity: 1;
+					margin-top: 0;
+				}
+			}
+			@-o-keyframes slideDown {
+				0% {
+					opacity: 0;
+					margin-top: -20px;
+				}
+				60% {
+					opacity: 0.1;
+				}
+				100% {
+					opacity: 1;
+					margin-top: 0;
+				}
+			}
+			@-moz-keyframes slideDown {
+				0% {
+					opacity: 0;
+					margin-top: -20px;
+				}
+				60% {
+					opacity: 0.1;
+				}
+				100% {
+					opacity: 1;
+					margin-top: 0;
+				}
+			}
+			@-webkit-keyframes slideDown {
+				0% {
+					opacity: 0;
+					margin-top: -20px;
+				}
+				60% {
+					opacity: 0.1;
+				}
+				100% {
+					opacity: 1;
+					margin-top: 0;
+				}
+			}
 
-		#controlView bdi {
-			letter-spacing: 2px;
-		}
+			#controlView ul {
+				padding: 0;
+				display: inline;
+				letter-spacing: 2px;
+			}
+
+				#controlView li {
+					list-style-type: none;
+					display: inline-block;
+					cursor: pointer;
+
+					transition: color 0.3s ease, transform 0.3s ease;
+					-o-transition: color 0.3s ease, -o-transform 0.3s ease;
+					-ms-transition: color 0.3s ease, -ms-transform 0.3s ease;
+					-moz-transition: color 0.3s ease, -moz-transform 0.3s ease;
+					-webkit-transition: color 0.3s ease, -webkit-transform 0.3s ease;
+				}
+
+					#controlView li:hover {
+						color: #76d09c;
+						transform: scale(2);
+						-o-transform: scale(2);
+						-ms-transform: scale(2);
+						-moz-transform: scale(2);
+						-webkit-transform: scale(2);
+					}
 
 	footer {
 		margin-top: 5vh;
 		padding-top: 5vh;
 		border-top: 1px solid #0d2524;
+		font-size: 0.8rem;
 	}
 
 #gameFrame {
@@ -101,11 +220,74 @@ label {
 	z-index: 0;
 	background-color: #3FB8AF;
 	transition: left 0.3s ease, background-color 0.3s ease, width 0.3s ease;
+	-o-transition: left 0.3s ease, background-color 0.3s ease, width 0.3s ease;
+	-ms-transition: left 0.3s ease, background-color 0.3s ease, width 0.3s ease;
+	-moz-transition: left 0.3s ease, background-color 0.3s ease, width 0.3s ease;
+	-webkit-transition: left 0.3s ease, background-color 0.3s ease, width 0.3s ease;
 }
 
 	.node {
 		position: absolute;
 		width: 10px;
 		height: 10px;
+		z-index: 0;
 		background: #F6F6F6;
 	}
+
+		.nodeHead {
+			z-index: 1;
+
+ 			animation: fadeIn 0.7s ease;
+ 			-o-animation: fadeIn 0.7s ease;
+ 			-moz-animation: fadeIn 0.7s ease;
+ 			-webkit-animation: fadeIn 0.7s ease;
+		}
+
+			@keyframes fadeIn {
+				0% {
+					transform: scale(0);
+				}
+				60% {
+					border-radius: 50%;
+				}
+				100% {
+					border-radius: 0;
+					transform: scale(1);
+				}
+			}
+			@-o-keyframes fadeIn {
+				0% {
+					-o-transform: scale(0);
+				}
+				60% {
+					border-radius: 50%;
+				}
+				100% {
+					border-radius: 0;
+					-o-transform: scale(1);
+				}
+			}
+			@-moz-keyframes fadeIn {
+				0% {
+					-moz-transform: scale(0);
+				}
+				60% {
+					border-radius: 50%;
+				}
+				100% {
+					border-radius: 0;
+					-moz-transform: scale(1);
+				}
+			}
+			@-webkit-keyframes fadeIn {
+				0% {
+					-webkit-transform: scale(0);
+				}
+				60% {
+					border-radius: 50%;
+				}
+				100% {
+					border-radius: 0;
+					-webkit-transform: scale(1);
+				}
+			}
