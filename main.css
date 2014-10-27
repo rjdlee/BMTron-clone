@@ -6,6 +6,7 @@ body {
 	text-align: center;
 	margin: 0;
 	overflow: hidden;
+	background-color: #222424;
 }
 	
 	p {
@@ -90,9 +91,8 @@ label {
 	width: 149px;
 	padding: 3vh 20px;
 	height: 94vh;
-	overflow: scroll;
+	overflow: hidden;
 	border-right: 1px solid #123432;
-	background-color: #222424;
 	z-index: 0;
 	text-align: left;
 }

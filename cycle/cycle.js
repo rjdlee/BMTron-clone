@@ -10,10 +10,12 @@ var Cycle = function(id, x, y, colour)
 	this.isActive = true;
 	this.controls = [];
 
-	this.radius = 5;
+	this.radius = screenWidth > 1920 ? 7 : screenWidth < 480 ? 20 : Math.round(1280 / screenWidth) * 5;
+	
+	this.diameter = this.radius << 1;
 	this.colour = colour;
 
-	this.initSpeed = this.radius << 1;
+	this.initSpeed = this.diameter;
 	this.speed = this.initSpeed;
 	this.pos = 
 	{
@@ -21,7 +23,7 @@ var Cycle = function(id, x, y, colour)
 		y : y
 	}
 
-	this.nodes = [new Node("nodeHead node", x, y, 10, 10, this.colour, true)];
+	this.nodes = [new Node("nodeHead node", x, y, this.diameter, this.diameter, this.colour, true)];
 	this.next = 
 	{
 		x : 0,
@@ -109,11 +111,11 @@ Cycle.prototype.draw = function()
 	}
 	else
 	{
-		this.nodes.push(new Node("node", this.pos.x, this.pos.y, 10, 10, this.colour));
+		this.nodes.push(new Node("node", this.pos.x, this.pos.y, this.diameter, this.diameter, this.colour));
 	}
 	
 	// Transform the head of the cycle
-	this.nodes[0].transform(this.pos.x, this.pos.y, this.radius << 1, this.radius << 1);
+	this.nodes[0].transform(this.pos.x, this.pos.y, this.speed, this.speed);
 
 	if(this.collision()) return false;
 
