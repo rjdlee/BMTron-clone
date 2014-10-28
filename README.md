@@ -1,5 +1,4 @@
 #RTron
-============
 
 My minimalist version of the light cycles from tron. Play with one or more players.
 
