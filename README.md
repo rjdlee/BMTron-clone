@@ -1,8 +1,10 @@
-RTron
-============
+#RTron
 
-Playable at: http://rileedesign.com/projects/tron/
+Feel free to fork and create your own unique version of this classic game. Inspired by BMTron.
 
-Feel free to fork and create your own unique version of this classic game.
+##Playable at: 
+http://rileedesign.com/projects/tron/
 
-Inspired by BMTron.
+![Screenshot of RTron](https://github.com/rjdlee/BMTron-clone/screenshots/rtron-1.png)
+
+
