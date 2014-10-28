@@ -5,7 +5,7 @@ My minimalist version of the light cycles from tron. Play with one or more playe
 ##Playable at: 
 http://rileedesign.com/projects/tron/
 
-![Screenshot of RTron](https://github.com/rjdlee/BMTron-clone/screenshots/rtron-1.png)
+![Screenshot of RTron](screenshots/rtron-1.png)
 
 ##Future
 
