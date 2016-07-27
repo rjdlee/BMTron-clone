@@ -3,7 +3,7 @@
 My minimalist version of the light cycles from tron. Play with one or more players. Feel free to fork and create your own unique version of this classic game. Inspired by BMTron.
 
 ##Playable at: 
-http://rileedesign.com/projects/tron/
+https://rjdlee.com/projects/tron/
 
 ![Screenshot of RTron](screenshots/rtron-1.png)
 
